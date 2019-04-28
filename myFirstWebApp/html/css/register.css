@@ -1,0 +1,20 @@
+label{
+    display: table;
+    height: 30px;
+}
+.tip{
+    color: #f00;
+}
+.good{
+    background-color: #ff0;
+    color: #000;
+}
+.best{
+    background-color: #0f0;
+    color: #000;
+}
+#verifyImg{
+    vertical-align: middle;
+    width: 85px;
+    height: 30px;
+}

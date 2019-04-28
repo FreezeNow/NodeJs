@@ -1,0 +1,10 @@
+{
+    "name": "my-web-app",
+    "version": "1.0.0",
+    "dependencies": {
+        "canvas": "^2.4.1",
+        "mysql": "2.16.0",
+        "session": "^0.1.0",
+        "vue": "^2.6.10"
+    }
+}

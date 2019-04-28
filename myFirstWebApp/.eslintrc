@@ -1,0 +1,13 @@
+{   
+    "extends": "eslint-config-airbnb",
+    "parserOptions": {
+        "sourceType": "module",
+    },
+    "env":{ 
+        "es6": true,
+        "browser": true,
+    },
+    "rules": {
+        "indent": ["error", 2],
+    },
+}

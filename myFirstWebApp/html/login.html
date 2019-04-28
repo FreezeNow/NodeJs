@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/base.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/common.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/header.css">
+</head>
+
+<body>
+  <header id="vHeader" class="clearfix">
+    <component-nav></component-nav>
+    <component-user></component-user>
+    <component-login-tip></component-login-tip>
+  </header>
+  <form action="" method="POST" id="login">
+    <label for="name">
+      账号：
+      <input type="text" autocomplete="off" v-model.number.lazy="nameTxt" name="name" />
+      <span :class="nameTipClass" v-html="nameTipMsg"></span>
+    </label><br />
+    <label for="password">
+      密码：
+      <input type="password" autocomplete="off" v-model="passwordTxt" name="password" maxlength="16" />
+      <span :class="passwordTipClass" v-html="passwordTipMsg"></span>
+    </label><br />
+    <input id="loginBtn" @click="clickLoginBtn" type="button" value="登录">
+    <input id="backBtn" @click="clickBackBtn" type="button" value="返回">
+  </form>
+  <script type="module" src="js/app_login.js"></script>
+</body>
+
+</html>

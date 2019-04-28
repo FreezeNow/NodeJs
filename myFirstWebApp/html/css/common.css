@@ -1,0 +1,69 @@
+/* 浮动清除 */
+.clearfix::after{
+  clear: both;
+  height: 0;
+  content: '.';
+  visibility: hidden;
+  display: block;
+}
+/* 单行输入系列 */
+[type="text"], [type="password"], [type="number"]{
+  padding: 0 0.5em;
+  width: 150px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid #777;
+  outline: none;
+  transition: all 0.3s;
+}
+[type="text"]:focus, [type="password"]:focus, [type="number"]:focus{
+  border: 1px solid rgb(99, 155, 240);
+  box-shadow: 0 0 3px rgb(99, 155, 240);
+}
+
+[type="button"], [type="submit"], button{
+  padding: 0 5px;
+  background: #5096F2;
+  /* border: 1px solid; */
+  border: none;
+  line-height: 1.5;
+  outline: none;
+  /* color: #fff; */
+  transition: background-color 0.3s;
+}
+[type="button"]:hover, [type="submit"]:hover{
+  background: #88B6F2;
+}
+[type="button"]:hover, [type="submit"]:active{
+  background: #b4d7ff;
+}
+
+/* 图片系列 */
+/* 图片没有src时的处理 */
+img[src=""],img:not([src]) {
+  opacity: 0;
+}
+#verifyImg{
+  border: 1px #ccc solid;
+  border-radius: 3px;
+  transition: opacity 0.3s;
+}
+/* 返回头部 */
+#goTop{
+  box-sizing: border-box;
+  padding: 2.5px 5px;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  border: 1px #ccc solid;
+  text-align: center;
+  /* line-height: 1.5; */
+  opacity: 0;
+  background-color: #00ffff;
+  transition: 0.3s opacity;
+}
+#goTop.on{
+  opacity: 1;
+}

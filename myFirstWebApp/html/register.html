@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/base.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/common.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/header.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/register.css">
+</head>
+
+<body>
+  <header id="vHeader" class="clearfix">
+    <component-nav></component-nav>
+    <component-user ref="vCUser"></component-user>
+    <component-login-tip></component-login-tip>
+  </header>
+  <form action="" method="POST" id="register" autocomplete="on">
+    <label>
+      账号：
+      <input type="text" autocomplete="off" @change="changeName" v-model.lazy="nameTxt" name="name" id="name" placeholder="不支持中文与特殊字符哦" />
+      <span :class="nameTipClass" v-html="nameTipMsg"></span>
+    </label>
+    <label>
+      密码：
+      <input type="password" autocomplete="off" @keyup="keyupPassword" v-model="passwordTxt" id="password" name="password"
+        placeholder="密码长度为7-16" maxlength="16" />
+      <span :class="passwordTipClass" v-html="passwordTipMsg"></span>
+    </label>
+    <label>
+      确认密码：
+      <input type="password" autocomplete="off" @change="changePasswordRight" v-model.lazy="passwordRightTxt" id="passwordRight"
+        name="passwordRight" maxlength="16" />
+      <span :class="passwordRightTipClass" v-html="passwordRightTipMsg"></span>
+    </label>
+    <label>
+      验证码：
+      <input type="text" autocomplete="off" @focus="focusVerifyTxt" @change="changeVerify" v-model.lazy="verifyTxt" name="verify"
+        id="verify" placeholder="点击就会出现验证码哦" />
+      <img :src="verifyImgSrc" @click="clickChangeVerifyImg" id="verifyImg" />
+      <span :class="verifyTipClass" v-html="verifyTipMsg"></span>
+    </label>
+    <input type="button" id="btnRegister" @click="setNewUser" value="立即注册">
+    <!-- <button id="btnRegister" @click="setNewUser">立即注册</button> -->
+    <a href="login.html">已有账号,点击登录</a>
+  </form>
+
+  <script type="module" src="js/app_register.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+
+#vNav{
+  float: left;
+}
+.navLiA{
+  color: #d2691e;
+}
+
+.navLi{
+  float: left;
+}
+/* #vNav li{
+  float: left;
+} */
+#vUser{
+  float: right;
+}
+#vLoginTip{
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background: #acf;
+  border-radius: 3px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: top 0.5s;
+}
+#vLoginTip.on{
+  top: 0px;
+}

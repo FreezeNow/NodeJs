@@ -1,34 +1,24 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css">
-    <script src="js/main.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="css/base.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/common.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/header.css">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li></li>
-            </ul>
-        </nav>
-        <div>
-            <a href="login.html">登录</a>
-            <a href="register.html">注册</a>
-        </div>
-    </header>
-    <div>
-        <p></p>
-        <button disabled="disabled">还不能领取宝箱哦</button>
-        <div id="getBox"></div>
-    </div>
+  <header id="vHeader" class="clearfix">
+    <component-nav></component-nav>
+    <component-user></component-user>
+    <component-login-tip></component-login-tip>
+  </header>
 
-    <script src="js/app.js"></script>
+  <script type="module" src="js/app_index.js"></script>
 </body>
 
 </html>

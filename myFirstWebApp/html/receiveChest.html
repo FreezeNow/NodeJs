@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/base.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/common.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/header.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/receiverChest.css">
+</head>
+
+<body>
+  <header id="vHeader" class="clearfix">
+      <component-nav></component-nav>
+      <component-user ref="vCUser"></component-user>
+      <component-login-tip></component-login-tip>
+  </header>
+  <div id="vChest">
+    <button :disabled="receiveChestBtnDisabled" @click="openChestBtn" id="receiveChest" v-html="receiveChestBtn"></button>
+    <p v-html="chestTimeP"></p>
+    <div id="getBox" ref="refGetBox" tabindex="-1" @blur="blurGetBox" :class="getBoxClass">
+      <p>领取奖励咯~</p>
+      <input type="text" v-model.lazy="verifyTxt" name="verify" id="verify" autocomplete="off" placeholder="点击就会出现验证码哦" >
+      <img :src="verifyImgSrc" id="verifyImg" @click="clickChangeVerifyImg"/>
+      <br />
+      <button id="getBoxReceiveBtn" @click="clickReceiveAwardBtn">领取</button>
+    </div>
+    <span id="verifyTip" :class="verifyTipClass" v-html="verifyTipMsg"></span>
+  </div>
+  
+  <!-- <script type="module" src="js/vue_header.js"></script> -->
+  <!-- <script type="module" src="js/vue_receiveChest.js"></script> -->
+  <script type="module" src="js/app_receiveChest.js"></script>
+
+</body>
+
+</html>

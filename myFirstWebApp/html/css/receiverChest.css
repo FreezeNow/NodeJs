@@ -1,0 +1,63 @@
+@keyframes openChest {
+  0% { transform: scale(0); }
+  75% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+@keyframes closeChest {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.15); }
+  100% { transform: scale(0); }
+}
+
+.tip{
+  color: #f00; 
+}
+#chest{
+  position: relative;
+}
+#vChest{
+  position: relative;
+}
+#getBox{
+  /* width: 250px; */
+  position: absolute;
+  /* bottom: 2.68em; */
+  transform: scale(0);
+  transform-origin:0% 100%;
+  border: 1px #ccc solid;
+  border-radius: 3px;
+  outline: none;
+  background-color: #fff;
+  transition: transform 0.3s;
+  
+}
+#getBox.on{
+  /* transform: scale(1); */
+  animation: openChest 0.3s 1 forwards;
+}
+#getBox.off{
+  animation: closeChest 0.3s 1 forwards;
+}
+#verifyTip{
+  /* width: 6em; */
+  padding: 0.25em 1em;
+  display: block;
+  position: absolute;
+  bottom: 1em;
+  left: 500px;
+  border-radius: 5px;
+  transform: translateX(-50%);
+  background-color: #acf;
+  opacity: 0;
+  text-align: center;
+  transition: opacity 0.3s, bottom 0.3s;
+}
+#verifyTip.on{
+  bottom: 2em;
+  opacity: 1;
+}
+#verifyImg{
+  vertical-align: middle;
+  width: 85px;
+  height: 30px;
+}
