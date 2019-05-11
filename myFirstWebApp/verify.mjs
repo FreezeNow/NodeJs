@@ -79,11 +79,14 @@ const setVerify = function (width = 85, height = 30) {
 
 const getVerify = function (response) {
   const verify = setVerify();
+  const result = {
+    src: verify.src,
+  }
   response.writeHead(200, {
     'Content-Type': 'text/plain',
     'Set-Cookie': `verify=${verify.verify}; Max-Age=30`,
   });
-  response.end(verify.src);
+  response.end(JSON.stringify(result));
 }
 
 export default {

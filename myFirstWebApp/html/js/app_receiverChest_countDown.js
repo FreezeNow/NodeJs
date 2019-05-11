@@ -13,10 +13,10 @@ const countDown = function () {
     // 如果time小于等于0则取消计时器，并使按钮可点击
     if (time <= 0) {
       clearInterval(t);
-      chestData.receiveChestBtnDisabled = false;
-      chestData.receiveChestBtn = '宝箱可以领取啦';
+      chestData.btnReceiveChestDisabled = false;
+      chestData.btnReceiveChestHtml = '宝箱可以领取啦';
     }
-    chestData.chestTimeP = setTime(time);
+    chestData.pChestTime = setTime(time);
   }, 1000);
 };
 

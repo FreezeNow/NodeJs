@@ -27,11 +27,9 @@ const login = function (name, password) {
   };
   ajax('ajaxUser', 'post', {
     data: user,
-    callback: (xmlhttp) => {
-      const flag = JSON.parse(xmlhttp.responseText);
-      console.log(JSON.stringify(flag));
-      if (flag.password) {
-        loginSuccess(flag);
+    callback: (result) => {
+      if (result.password) {
+        loginSuccess(result);
       }
     },
   });

@@ -1,0 +1,25 @@
+textarea{
+  /* position: abs olute; */
+  resize: none;
+  box-sizing: border-box;
+  padding: 0.5em;
+  min-width: 500px;
+  max-width: 750px;
+  height: 500px;
+  font-size: 18px;
+  border: 1px #ccc solid;
+  float: left;
+}
+#messageShow{
+  margin-left: 50px;
+  min-width: 250px;
+  max-width: 450px;
+  float: left;
+  word-wrap: break-word;
+}
+/* textarea{
+  opacity: 0;
+} */
+button{
+  font-family: Georgia, serif;
+}

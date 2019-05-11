@@ -9,44 +9,44 @@ const { getVerify } = pageVerify;
 const { isTrue } = pageIsTrue;
 
 const methods = {
-  changeName: () => {
+  changeNameChange: () => {
     if (data.nameTxt.length === 0) {
-      data.nameTipMsg = '用户名不能为空';
+      data.nameTipMsgHtml = '用户名不能为空';
       data.nameTipClass.best = false;
     } else {
       hasName(data);
     }
   },
-  keyupPassword: () => {
+  passwordKeyup: () => {
     passwordSecurity(data);
   },
-  changePasswordRight: () => {
+  passwordRightChange: () => {
     if (data.passwordRightTxt !== data.passwordTxt) {
-      data.passwordRightTipMsg = '第二次密码与第一次密码不相同';
+      data.passwordRightTipMsgHtml = '第二次密码与第一次密码不相同';
       data.passwordRightTipClass.best = false;
     } else {
-      data.passwordRightTipMsg = '两次密码相同';
+      data.passwordRightTipMsgHtml = '两次密码相同';
       data.passwordRightTipClass.best = true;
     }
   },
-  focusVerifyTxt: () => {
+  verifyTxtFocus: () => {
     if (!data.verifyImgSrc) {
       getVerify(data);
     }
   },
-  changeVerify: () => {
+  verifyChange: () => {
     if (document.cookie) {
       isTrue(data);
     } else {
       getVerify(data);
-      data.verifyTipMsg = '当前验证码超时，已刷新';
+      data.verifyTipMsgHtml = '当前验证码超时，已刷新';
       data.verifyTipClass.best = false;
     }
   },
-  clickChangeVerifyImg: () => {
+  imgChangeVerifyClick: () => {
     getVerify(data);
   },
-  setNewUser: () => {
+  setNewUserClick: () => {
     if (data.nameTipClass.best === true &&
       (data.passwordTipClass.best === true || data.passwordTipClass.good === true || data.passwordTipClass.bad === true) &&
       data.passwordRightTipClass.best === true &&
@@ -54,13 +54,13 @@ const methods = {
       ajaxRegister(data);
     } else {
       if (data.nameTxt.length === 0) {
-        data.nameTipMsg = '用户名不能为空';
+        data.nameTipMsgHtml = '用户名不能为空';
       } else if (data.passwordTxt.length === 0) {
-        data.passwordTipMsg = '密码不能为空';
+        data.passwordTipMsgHtml = '密码不能为空';
       } else if (data.passwordRightTxt.length === 0) {
-        data.passwordRightTipMsg = '确认密码不能为空';
+        data.passwordRightTipMsgHtml = '确认密码不能为空';
       } else if (data.verifyTxt.length === 0) {
-        data.verifyTipMsg = '验证码不能为空';
+        data.verifyTipMsgHtml = '验证码不能为空';
       }
     }
   },

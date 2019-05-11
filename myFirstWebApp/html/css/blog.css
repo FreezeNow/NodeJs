@@ -5,12 +5,28 @@ body{
 #vSidebar{
   width: 250px;
   min-height: 100px;
-  /* border: 1px #ccc solid; */
   position: absolute;
   top: 50px;
   left: 50%;
   transform: translateX(-500px);
   background-color: #fff;
+}
+#vSidebar.sidebarMinPosition{
+  left: 0px;
+  transform: translateX(0px);
+}
+.sidebar{
+  border-bottom: 1px #ccc solid;
+}
+.sidebar a{
+  display: block;
+  color: #2c6ecf;
+  padding-left: 2em;
+  transition: all 0.3s;
+}
+.sidebar a:hover{
+  background-color: #2c6ecf;
+  color: #fff;
 }
 
 #vBlogs{
@@ -21,7 +37,10 @@ body{
   left: 50%;
   transform: translateX(-200px);
   background-color: #fff;
-  /* text-align: center; */
+}
+#vBlogs.blogsMinPosition{
+  left: 300px;
+  transform: translateX(0px);
 }
 
 .blog{

@@ -1,12 +1,12 @@
 const getCookie = function (name) {
   const cookies = document.cookie.split(';');
-  let tempResult = '';
+  let result = '';
   cookies.forEach((cookie) => {
     if (cookie.indexOf(name) !== -1) {
-      tempResult = cookie.substring(cookie.indexOf('=') + 1);
+      result = cookie.substring(cookie.indexOf('=') + 1);
     }
   });
-  return tempResult;
+  return result;
 };
 
 export default {

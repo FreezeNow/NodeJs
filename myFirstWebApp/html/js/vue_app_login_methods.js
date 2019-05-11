@@ -5,10 +5,10 @@ const { loginVerification } = app_login_login;
 const { data } = vue_login_data;
 
 const methods = {
-  clickLoginBtn: () => {
+  btnLoginClick: () => {
     loginVerification(data);
   },
-  clickBackBtn: () => {
+  btnBackClick: () => {
     window.history.go(-1);
   }
 };

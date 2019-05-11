@@ -5,6 +5,7 @@ const navData = () => {
       { href: 'index.html', message: '首页' },
       { href: 'receiveChest.html', message: '领取宝箱' },
       { href: 'blog.html', message: '我的博客' },
+      { href: 'friendsAndChat.html', message: '好友与聊天' }
     ],
   }
 };

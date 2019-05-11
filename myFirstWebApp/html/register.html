@@ -15,36 +15,32 @@
 <body>
   <header id="vHeader" class="clearfix">
     <component-nav></component-nav>
-    <component-user ref="vCUser"></component-user>
+    <component-user></component-user>
     <component-login-tip></component-login-tip>
   </header>
   <form action="" method="POST" id="register" autocomplete="on">
     <label>
       账号：
-      <input type="text" autocomplete="off" @change="changeName" v-model.lazy="nameTxt" name="name" id="name" placeholder="不支持中文与特殊字符哦" />
-      <span :class="nameTipClass" v-html="nameTipMsg"></span>
+      <input type="text" autocomplete="off" name="name" id="name" placeholder="不支持中文与特殊字符哦" @change="changeNameChange" v-model.lazy="nameTxt" />
+      <span :class="nameTipClass" v-html="nameTipMsgHtml"></span>
     </label>
     <label>
       密码：
-      <input type="password" autocomplete="off" @keyup="keyupPassword" v-model="passwordTxt" id="password" name="password"
-        placeholder="密码长度为7-16" maxlength="16" />
-      <span :class="passwordTipClass" v-html="passwordTipMsg"></span>
+      <input type="password" autocomplete="off" id="password" name="password" placeholder="密码长度为7-16" maxlength="16" @keyup="passwordKeyup" v-model="passwordTxt" />
+      <span :class="passwordTipClass" v-html="passwordTipMsgHtml"></span>
     </label>
     <label>
       确认密码：
-      <input type="password" autocomplete="off" @change="changePasswordRight" v-model.lazy="passwordRightTxt" id="passwordRight"
-        name="passwordRight" maxlength="16" />
-      <span :class="passwordRightTipClass" v-html="passwordRightTipMsg"></span>
+      <input type="password" autocomplete="off" id="passwordRight" name="passwordRight" maxlength="16" @change="passwordRightChange" v-model.lazy="passwordRightTxt" />
+      <span :class="passwordRightTipClass" v-html="passwordRightTipMsgHtml"></span>
     </label>
     <label>
       验证码：
-      <input type="text" autocomplete="off" @focus="focusVerifyTxt" @change="changeVerify" v-model.lazy="verifyTxt" name="verify"
-        id="verify" placeholder="点击就会出现验证码哦" />
-      <img :src="verifyImgSrc" @click="clickChangeVerifyImg" id="verifyImg" />
-      <span :class="verifyTipClass" v-html="verifyTipMsg"></span>
+      <input type="text" autocomplete="off" name="verify" id="verify" placeholder="点击就会出现验证码哦" @focus="verifyTxtFocus" @change="verifyChange" v-model.lazy="verifyTxt" />
+      <img id="imgVerify" :src="imgVerifySrc" @click="imgChangeVerifyClick" />
+      <span :class="verifyTipClass" v-html="verifyTipMsgHtml"></span>
     </label>
-    <input type="button" id="btnRegister" @click="setNewUser" value="立即注册">
-    <!-- <button id="btnRegister" @click="setNewUser">立即注册</button> -->
+    <input type="button" value="立即注册" id="btnRegister" @click="setNewUserClick">
     <a href="login.html">已有账号,点击登录</a>
   </form>
 

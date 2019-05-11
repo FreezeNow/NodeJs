@@ -7,9 +7,9 @@ import verify from './verify';
 
 const start = function (file) {
   const onRequest = function (request, response) {
-    
-    const {loginVerification,ajaxUser,hasName,ajaxRegister,ajaxReceieChest,ajaxGetBlogs} = mysql;
-    const {getVerify} = verify;
+
+    const { loginVerification, ajaxUser, hasName, ajaxRegister, ajaxReceieChest, ajaxGetBlogs, ajaxPublishBlog } = mysql;
+    const { getVerify } = verify;
     const ajaxUrls = {
       loginVerification,
       ajaxUser,
@@ -18,13 +18,14 @@ const start = function (file) {
       getVerify,
       ajaxReceieChest,
       ajaxGetBlogs,
+      ajaxPublishBlog,
     };
 
     // 获取根目录
     const root = path.resolve(process.argv[2] || '.');
     let { pathname } = url.parse(request.url);
 
-    const tempPathname = pathname.substring(pathname.lastIndexOf('/')+1);
+    const tempPathname = pathname.substring(pathname.lastIndexOf('/') + 1);
     // console.log(tempPathname);
     if (ajaxUrls[tempPathname]) {
       if (tempPathname === 'getVerify') {
@@ -32,7 +33,6 @@ const start = function (file) {
       } else {
         ajax.ajax(request, response, ajaxUrls[tempPathname]);
       }
-      
     } else {
       if (pathname.indexOf('.ico') !== -1) {
         response.writeHead(404, { 'Content-Type': 'text/ico' });
@@ -60,14 +60,14 @@ const start = function (file) {
         }
         file.isFile(file, pathname, request, response);
       }
-      
+
     }
     // if (pathname.indexOf('.ico') !== -1) {
     //   response.writeHead(404, { 'Content-Type': 'text/ico' });
     //   response.end();
     // } else if (pathname.endsWith('loginVerification')) {
     //   console.log('loginVerification');
-      
+
     //   ajax.login(request, response, mysql.login);
     // } else if (pathname.endsWith('ajaxUser')) {
     //   console.log('ajaxUser');
@@ -79,7 +79,7 @@ const start = function (file) {
     //   ajax.hasName(request, response, mysql.hasName);
     // } else if (pathname.substring(pathname.lastIndexOf('/')+1) ==='ajaxRegister') {
     //   console.log('pathname:' + pathname);
-      
+
     //   ajax.login(request, response, mysql.register);
     // } else if (pathname.endsWith('getVerify')) {
     //   console.log('getVerify');

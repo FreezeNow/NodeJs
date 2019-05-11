@@ -23,7 +23,7 @@
 
 [type="button"], [type="submit"], button{
   padding: 0 5px;
-  background: #5096F2;
+  background: #b4d7ff;
   /* border: 1px solid; */
   border: none;
   line-height: 1.5;
@@ -31,11 +31,12 @@
   /* color: #fff; */
   transition: background-color 0.3s;
 }
-[type="button"]:hover, [type="submit"]:hover{
+[type="button"]:hover, [type="submit"]:hover, button:hover{
   background: #88B6F2;
 }
-[type="button"]:hover, [type="submit"]:active{
-  background: #b4d7ff;
+[type="button"]:hover, [type="submit"]:active, button:active{
+  background: #5096F2;
+  color: #fff;
 }
 
 /* 图片系列 */

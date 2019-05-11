@@ -9,10 +9,8 @@ const loginVerification = function (data) {
 
   ajax('loginVerification', 'post', {
     data: user,
-    callback: (xmlhttp) => {
-      const flag = JSON.parse(xmlhttp.responseText);
-      console.log(JSON.stringify(flag));
-      if (flag.password) {
+    callback: (result) => {
+      if (result.password) {
         const date = new Date();
         date.setTime(date.getTime() + 1000 * 3600 * 24 * 30);
         document.cookie = `name=${user.name}; expires=${date}`;
@@ -22,7 +20,7 @@ const loginVerification = function (data) {
       } else {
         data.nameTipMsg = '';
         data.passwordTipMsg = '';
-        if (flag.name) {
+        if (result.name) {
           data.passwordTipMsg = '密码错误';
         } else {
           data.nameTipMsg = '用户名错误';

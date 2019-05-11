@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="css/base.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/common.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/header.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/newBlog.css">
+</head>
+
+<body>
+  <header id="vHeader" class="clearfix">
+    <component-nav></component-nav>
+    <component-user></component-user>
+    <component-login-tip></component-login-tip>
+  </header>
+
+  <div id="vNewBlog">
+    <label>
+      标题<br />
+      <input type="text" v-model="titleBlog"/>
+    </label>
+    <div>
+      <button type="button" @click="setBlodClick"><b>B</b></button>
+      <button type="button" @click="setItalicClick"><i>I</i></button>
+    </div>
+    <!-- <div id="messageShow" v-html="textareaMessage"></div> -->
+    <div class="clearfix">
+      <textarea id="textareaBlog" ref="textareaBlog" v-model="textareaBlog" @input="getBlogInput"
+        @keyup="getBlogKeyup"></textarea>
+      <div id="messageShow" v-html="showBlog"></div>
+    </div>
+
+    <button type="button" @click="publishBlogClick">发布</button>
+  </div>
+  <script type="module" src="js/app_newBlog.js"></script>
+</body>
+
+</html>

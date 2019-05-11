@@ -5,8 +5,8 @@ const getVerify = function (data) {
   const { ajax } = common_ajax;
 
   ajax('getVerify', 'GET', {
-    callback: (xmlhttp) => {
-      data.verifyImgSrc =  xmlhttp.responseText;
+    callback: (result) => {
+      data.imgVerifySrc = result.src;
     },
   });
 }

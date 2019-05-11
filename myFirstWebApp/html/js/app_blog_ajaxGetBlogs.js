@@ -8,11 +8,8 @@ const ajaxGetBlogs = (data) => {
     data: {
       name: getCookie('name'),
     },
-    callback: (xmlhttp) => {
-      const rBlogs = JSON.parse(xmlhttp.responseText);
-      data.blogs = rBlogs;
-      console.log(data);
-      
+    callback: (result) => {
+      data.blogs = result;
     }
   })
 };

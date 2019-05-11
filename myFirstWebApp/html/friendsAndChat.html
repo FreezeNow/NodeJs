@@ -8,7 +8,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="css/base.css">
   <link rel="stylesheet" type="text/css" media="screen" href="css/common.css">
   <link rel="stylesheet" type="text/css" media="screen" href="css/header.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="css/blog.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/friendsAndChat.css">
 </head>
 <body>
   <header id="vHeader" class="clearfix">
@@ -16,25 +16,23 @@
     <component-user></component-user>
     <component-login-tip></component-login-tip>
   </header>
-  <aside id="vSidebar" :class="sidebarClass">
-    <section class="sidebar">
-      <a href="newBlog.html">写博客</a>
-    </section>
-  </aside>
-  <article id="vBlogs" :class="blogsClass">
-    <section class="blog clearfix" v-for="blog of blogs">
-      <h2 v-html="blog.title"></h2>
-      <p v-html="blog.content"></p>
-      <time :datetime="blog.createTime" v-html="blog.createTime"></time>
-    </section>
-  </article>
-  <div style="height: 10000px">
-
+  <div id="friends">
+    <ul class="clerfix">
+      <li class="tab">好友</li>
+      <li class="tab">群组</li>
+    </ul>
+    <ul friendsList>
+      <li class="friendsList" v-for="(friends, index) of friendsList" @click="showClick" :index="index">{{ friends.listName }}
+        <ul :style="friends.friendsStyle">
+          <li class="friend" v-for="friend of friends.friends">
+            <p v-html="friend.name"></p>
+            <p v-html="friend.signature"></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
-  <aside id="vGoTop">
-    <component-gotop></component-gotop>
-  </aside>
 
-  <script type="module" src="js/app_blog.js"></script>
+  <script type="module" src="js/app_friendsAndChat.js"></script>
 </body>
 </html>

@@ -5,7 +5,6 @@ import vue_receiveChest_methods from './vue_app_receiveChest_methods';
 const { chestData } = vue_receiveChest_data;
 const { chestMethods } = vue_receiveChest_methods;
 
-
 const vChest = new Vue({
   el: '#vChest',
   data: chestData,

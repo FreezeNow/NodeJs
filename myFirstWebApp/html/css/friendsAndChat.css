@@ -1,0 +1,39 @@
+.clerfix::after{
+  clear: both;
+  display: block;
+  height: 0;
+  content: ".";
+  visibility: hidden;
+}
+#friends{
+  width: 300px;
+  height: 350px;
+  background: #acf;
+  overflow: hidden;
+  overflow-y: hidden;
+  /* text-align: center; */
+}
+#friends [friendsList]{
+  width: 317px;
+  height: calc(100% - 21px);
+  overflow: auto;
+}
+#friends .tab{
+  float: left;
+}
+.friendsList{
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.friendsList>ul{
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s;
+  border-top: #eee 1px solid;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.friend{
+  border-bottom: 1px #eee solid;
+}
+ul.off{
+  
+}

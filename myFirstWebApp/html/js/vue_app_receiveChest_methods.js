@@ -12,40 +12,39 @@ const { getCookie } = common_cookie;
 
 const chestMethods = {
   // 打开宝箱的按钮
-  openChestBtn: function () {
+  openChestClick: function () {
     if (chestData.getBoxClass.on) {
       chestData.getBoxClass.on = false;
       chestData.getBoxClass.off = true;
     } else {
       chestData.getBoxClass.on = true;
       chestData.getBoxClass.off = false;
-      this.$refs.refGetBox.focus();
+      this.$refs.getBoxRef.focus();
       getVerify(chestData);
     }
   },
   // 领取界面失焦触发
-  blurGetBox: function (e) {
-    // console.log(e);
-    
+  getBoxBlur: function (e) {
     const isIn = e.relatedTarget;
     console.log(isIn);
     
     if (!isIn || !( isIn.id.includes('verify') ||
       isIn.id.includes('receiveChest') ||
+      isIn.id.includes('getBox') ||
       isIn.id.includes('getBoxReceiveBtn'))) {
       chestData.getBoxClass.on = false;
       chestData.getBoxClass.off = true;
     }
   },
   // 点击改变验证码图片
-  clickChangeVerifyImg: () => {
+  imgChangeVerifyClick: () => {
     getVerify(chestData);
   },
   // 领取按钮
-  clickReceiveAwardBtn: function () {
+  btnReceiveAwardClick: function () {
     isTrue(chestData);
     chestData.verifyTipClass.on = true;
-    this.$refs.refGetBox.focus();
+    this.$refs.getBoxRef.focus();
     setTimeout(() => {
       chestData.verifyTipClass.on = false;
     }, 1000);
@@ -57,11 +56,12 @@ const chestMethods = {
       };
       ajax('ajaxReceieChest', 'POST', {
         data: JSON.stringify(user),
-        callback: (xmlhttp) => {
-          const flag = JSON.parse(xmlhttp.responseText);
-          if (flag.flag) {
+        callback: (result) => {
+          if (result.flag) {
             chestData.getBoxClass.on = false;
             chestData.getBoxClass.off = true;
+            chestData.btnReceiveChestDisabled = true;
+            chestData.btnReceiveChestHtml = '宝箱已领取';
           }
         }
       });

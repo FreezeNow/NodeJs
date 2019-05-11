@@ -18,18 +18,18 @@
     <component-login-tip></component-login-tip>
   </header>
   <form action="" method="POST" id="login">
-    <label for="name">
+    <label>
       账号：
-      <input type="text" autocomplete="off" v-model.number.lazy="nameTxt" name="name" />
+      <input type="text" autocomplete="off" name="name" v-model.number.lazy="nameTxt" />
       <span :class="nameTipClass" v-html="nameTipMsg"></span>
     </label><br />
-    <label for="password">
+    <label>
       密码：
-      <input type="password" autocomplete="off" v-model="passwordTxt" name="password" maxlength="16" />
+      <input type="password" autocomplete="off" name="password" maxlength="16" v-model="passwordTxt"/>
       <span :class="passwordTipClass" v-html="passwordTipMsg"></span>
     </label><br />
-    <input id="loginBtn" @click="clickLoginBtn" type="button" value="登录">
-    <input id="backBtn" @click="clickBackBtn" type="button" value="返回">
+    <input id="btnLogin" @click="btnLoginClick" type="button" value="登录">
+    <input id="btnBack" @click="btnBackClick" type="button" value="返回">
   </form>
   <script type="module" src="js/app_login.js"></script>
 </body>

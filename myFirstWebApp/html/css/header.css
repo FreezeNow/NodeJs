@@ -1,8 +1,13 @@
-
+#vHeader{
+  min-width: 1000px;
+}
 #vNav{
   float: left;
 }
 .navLiA{
+  color: #da996c;
+}
+.navLiA:hover{
   color: #d2691e;
 }
 

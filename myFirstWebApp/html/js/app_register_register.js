@@ -6,20 +6,20 @@ const { ajax } = common_ajax;
 const passwordSecurity = (data) => {
   const len = data.passwordTxt.length;
   if (len < 7) {
-    data.passwordTipMsg = '您的密码长度过短';
+    data.passwordTipMsgHtml = '您的密码长度过短';
     data.passwordTipClass.best = false;
     data.passwordTipClass.good = false;
   } else if (len < 10) {
-    data.passwordTipMsg = '您的密码强度较弱';
+    data.passwordTipMsgHtml = '您的密码强度较弱';
     data.passwordTipClass.bad = true;
     data.passwordTipClass.best = false;
     data.passwordTipClass.good = false;
   } else if (len < 13) {
-    data.passwordTipMsg = '您的密码强度中等';
+    data.passwordTipMsgHtml = '您的密码强度中等';
     data.passwordTipClass.best = false;
     data.passwordTipClass.good = true;
   } else {
-    data.passwordTipMsg = '您的密码强度很强';
+    data.passwordTipMsgHtml = '您的密码强度很强';
     data.passwordTipClass.best = true;
     data.passwordTipClass.good = false;
   }
@@ -31,13 +31,12 @@ const hasName = (data) => {
     data: {
       name: data.nameTxt,
     },
-    callback: (xmlhttp) => {
-      const flag = JSON.parse(xmlhttp.responseText);
-      if (flag.name) {
-        data.nameTipMsg = '账户名未被注册';
+    callback: (result) => {
+      if (result.name) {
+        data.nameTipMsgHtml = '账户名未被注册';
         data.nameTipClass.best = true;
       } else {
-        data.nameTipMsg = '账户名已被注册';
+        data.nameTipMsgHtml = '账户名已被注册';
         data.nameTipClass.best = false;
       }
     },
@@ -52,9 +51,8 @@ const ajaxRegister = (data) => {
       name: data.nameTxt,
       password: data.passwordTxt,
     },
-    callback: (xmlhttp) => {
-      const flag = JSON.parse(xmlhttp.responseText);
-      if (flag.flag) {
+    callback: (result) => {
+      if (result.flag) {
         const date = new Date();
         date.setTime(date.getTime() + 1000 * 3600 * 24 * 30);
         document.cookie = `name=${user.name}; expires=${date}`;
