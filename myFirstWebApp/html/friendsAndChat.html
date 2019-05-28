@@ -18,19 +18,40 @@
   </header>
   <div id="friends">
     <ul class="clerfix">
-      <li class="tab">好友</li>
+      <li class="tab" >好友</li>
       <li class="tab">群组</li>
+      <li class="tab" mark-addFriend @click="addFriendClick">添加好友</li>
     </ul>
     <ul friendsList>
       <li class="friendsList" v-for="(friends, index) of friendsList" @click="showClick" :index="index">{{ friends.listName }}
         <ul :style="friends.friendsStyle">
           <li class="friend" v-for="friend of friends.friends">
             <p v-html="friend.name"></p>
-            <p v-html="friend.signature"></p>
+            <p class="signature" v-html="friend.signature"></p>
           </li>
         </ul>
       </li>
     </ul>
+  </div>
+
+  <div id="addFriendWindow" :class="afwClass">
+    <div class="af-tab clearfix">
+      <div class="af-closeWindow" @click="afCloseWindowClick">
+        <img src="images/closeW.png" alt="">
+      </div>
+    </div>
+    <div class="af-content">
+      <div class="af-search">
+        <input type="text" class="af-searchBar" ref="searchBarRef" v-model="searchBarMsg">
+        <input type="button" class="af-searchBtn" value="搜索" @click="btnaAfRearchClick">
+      </div>
+      <ul af-searchResultList>
+        <li class="af-searchResultList" v-for="searchResult of searchResultList">
+          <p v-html="searchResult.id"></p>
+          <p v-html="searchResult.name"></p>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <script type="module" src="js/app_friendsAndChat.js"></script>

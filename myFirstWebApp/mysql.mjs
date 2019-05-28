@@ -22,7 +22,7 @@ const mysqlFn = (database, sql, {
     setTimeout(() => {
       connection.end();
     }, 0);
-    
+
   });
 };
 // 登陆页面登陆时调用
@@ -104,7 +104,7 @@ const ajaxRegister = function (response, post) {
   const { name, password } = post;
   console.log(`name: ${name}`);
   console.log(`pass: ${password}`);
-  const sql = `insert into users(id, name, password, currency) values(0, ?, ?, 0)`;
+  const sql = `insert into users(name, password) values(?, ?)`;
   const newUser = [name, password];
 
   mysqlFn('users', sql, {
@@ -172,7 +172,7 @@ const ajaxPublishBlog = function (response, post) {
   mysqlFn('users', sqlFindId, {
     callback(result) {
       userId = result[0].id;
-      const sql = `insert into blogs(id, title, content, createTime, userId) values(0, ?, ?, ?, ?)`;
+      const sql = `insert into blogs(title, content, createTime, userId) values(?, ?, ?, ?)`;
       const newBlog = [title, blog, createTime, userId];
       mysqlFn('users', sql, {
         dataArr: newBlog,
@@ -186,6 +186,27 @@ const ajaxPublishBlog = function (response, post) {
   });
 };
 
+const ajaxSearchUser = function (response, post) {
+  const  searchResultList = [];
+
+  const { searchBarMsg } = post;
+
+  const sql = `select id, name from users where name="${searchBarMsg}" or id="${searchBarMsg}"`
+
+  mysqlFn('users', sql, {
+    callback(result) {
+      console.log(`找到${result.length}个用户`);
+      result.forEach(searchResult => {
+        searchResultList.push({
+          id: searchResult.id,
+          name: searchResult.name,
+        });
+      });
+      response.end(JSON.stringify(searchResultList));
+    }
+  })
+}
+
 export default {
   loginVerification,
   ajaxUser,
@@ -194,4 +215,5 @@ export default {
   ajaxReceieChest,
   ajaxGetBlogs,
   ajaxPublishBlog,
+  ajaxSearchUser,
 };

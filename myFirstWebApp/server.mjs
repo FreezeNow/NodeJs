@@ -8,7 +8,7 @@ import verify from './verify';
 const start = function (file) {
   const onRequest = function (request, response) {
 
-    const { loginVerification, ajaxUser, hasName, ajaxRegister, ajaxReceieChest, ajaxGetBlogs, ajaxPublishBlog } = mysql;
+    const { loginVerification, ajaxUser, hasName, ajaxRegister, ajaxReceieChest, ajaxGetBlogs, ajaxPublishBlog, ajaxSearchUser } = mysql;
     const { getVerify } = verify;
     const ajaxUrls = {
       loginVerification,
@@ -19,6 +19,7 @@ const start = function (file) {
       ajaxReceieChest,
       ajaxGetBlogs,
       ajaxPublishBlog,
+      ajaxSearchUser,
     };
 
     // 获取根目录

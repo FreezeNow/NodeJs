@@ -2,19 +2,27 @@ import Vue from "./vue";
 import vue_app_friendsAndChat_data from "./vue_app_friendsAndChat_data";
 import vue_app_friendsAndChat_methods from "./vue_app_friendsAndChat_methods";
 
-const {vFriendsAndChatData} = vue_app_friendsAndChat_data;
-const {vFriendsAndChatMethods} = vue_app_friendsAndChat_methods;
+const { vFriendsData, vAddFriendWindowData } = vue_app_friendsAndChat_data;
+const { vFriendsMethods, vAddFriendWindowMethods } = vue_app_friendsAndChat_methods;
 
-const vFriendsAndChat = new Vue({
+const vFriends = new Vue({
   el: '#friends',
-  data: vFriendsAndChatData,
-  methods: vFriendsAndChatMethods,
+  data: vFriendsData,
+  methods: vFriendsMethods,
+});
+
+const vAddFriendWindow = new Vue({
+  el: '#addFriendWindow',
+  data: vAddFriendWindowData,
+  methods: vAddFriendWindowMethods,
 });
 
 Vue.use(
-  vFriendsAndChat,
+  vFriends,
+  vAddFriendWindow,
 );
 
 export default {
-  vFriendsAndChatData,
+  vFriendsData,
+  vAddFriendWindowData,
 }

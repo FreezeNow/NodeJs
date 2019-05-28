@@ -20,11 +20,10 @@
   border: 1px solid rgb(99, 155, 240);
   box-shadow: 0 0 3px rgb(99, 155, 240);
 }
-
+/* 按钮系列 */
 [type="button"], [type="submit"], button{
   padding: 0 5px;
   background: #b4d7ff;
-  /* border: 1px solid; */
   border: none;
   line-height: 1.5;
   outline: none;
@@ -33,6 +32,7 @@
 }
 [type="button"]:hover, [type="submit"]:hover, button:hover{
   background: #88B6F2;
+  color: #dfeeff;
 }
 [type="button"]:hover, [type="submit"]:active, button:active{
   background: #5096F2;

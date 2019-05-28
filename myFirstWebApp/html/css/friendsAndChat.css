@@ -7,10 +7,13 @@
 }
 #friends{
   width: 300px;
-  height: 350px;
-  background: #acf;
+  height: calc(100% - 35px);
+  max-height: 750px;
+  background: #5398ff;
   overflow: hidden;
   overflow-y: hidden;
+  position: absolute;
+  top: 30px;
   /* text-align: center; */
 }
 #friends [friendsList]{
@@ -19,9 +22,19 @@
   overflow: auto;
 }
 #friends .tab{
+  padding: 0 0.5em;
   float: left;
 }
+#friends  .tab[mark-addFriend]{
+  float: right;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.tab[mark-addFriend]:hover{
+  color: #abedf7;
+}
 .friendsList{
+  text-indent: 1em;
   background-color: rgba(255, 255, 255, 0.3);
 }
 .friendsList>ul{
@@ -34,6 +47,63 @@
 .friend{
   border-bottom: 1px #eee solid;
 }
-ul.off{
-  
+p.signature{
+  font-size: 14px;
+  color: #666;
+}
+
+#addFriendWindow{
+  min-width: 600px;
+  width: calc(100% - 350px);
+  max-width: 750px;
+  height: calc(100% - 35px);
+  max-height: 750px;
+  position: absolute;
+  top: 30px;
+  left: 350px;
+  background-color: #5398ff;
+  transition: 0.3s;
+}
+#addFriendWindow.off{
+  top: 0;
+  opacity: 0;
+}
+.af-tab{
+  padding: 5px;
+}
+.af-closeWindow{
+  height: 15px;
+  float: right;
+}
+.af-closeWindow img{
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.af-closeWindow:hover img{
+  transform: rotate(180deg);
+}
+.af-content{
+  padding-top: 10px;
+  height: calc(100% - 25px);
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.af-search{
+  box-sizing: border-box;
+  height: 30px;
+  text-align: center;
+}
+.af-searchBar{
+  box-sizing: border-box;
+  margin-left: 20px;
+  width: 60%;
+  height: 100%;
+}
+.af-searchBtn{
+  margin-left: 2em;
+  min-width: 3em;
+  width: 10%;
+  height: 100%;
 }

@@ -1,4 +1,4 @@
-const vFriendsAndChatData = {
+const vFriendsData = {
   friendsList: [
     {
       listName: '我的好友',
@@ -55,6 +55,22 @@ const vFriendsAndChatData = {
   ],
 };
 
+const vAddFriendWindowData = {
+  afwClass: {
+    off: true,
+  },
+  searchBarMsg: "",
+  searchResultList: [
+    {
+      name: "a",
+    },
+    {
+      name: "c",
+    }
+  ],
+};
+
 export default {
-  vFriendsAndChatData,
+  vFriendsData,
+  vAddFriendWindowData,
 };

@@ -19,9 +19,9 @@
       <component-login-tip></component-login-tip>
   </header>
   <div id="vChest">
-    <button id="receiveChest" ref="getBoxRef" :disabled="btnReceiveChestDisabled" @click="openChestClick" v-html="btnReceiveChestHtml"></button>
+    <button id="receiveChest" :disabled="btnReceiveChestDisabled" @click="openChestClick" v-html="btnReceiveChestHtml"></button>
     <p v-html="pChestTime"></p>
-    <div id="getBox" tabindex="-1" @blur="getBoxBlur" :class="getBoxClass">
+    <div id="getBox" tabindex="-1" ref="getBoxRef" @blur="getBoxBlur" :class="getBoxClass">
       <p>领取奖励咯~</p>
       <input type="text" name="verify" id="verify" autocomplete="off" placeholder="点击就会出现验证码哦" v-model.lazy="verifyTxt" @blur="getBoxBlur">
       <img id="imgVerify" :src="imgVerifySrc" @click="imgChangeVerifyClick"/>
