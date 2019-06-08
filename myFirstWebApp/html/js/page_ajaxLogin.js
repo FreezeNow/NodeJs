@@ -3,13 +3,13 @@ import common_ajax from './common_ajax';
 
 const { ajax } = common_ajax;
 // 登陆成功
-const loginSuccess = function (flag) {
+const loginSuccess = function (flag, name) {
   const { vHeader } = vue_component_header;
-  console.log(vHeader);
 
   vHeader.$children.forEach((child) => {
     if (child.user && child.login) {
       child.user = flag.user;
+      child.name = name;
     } else if (child.loginTip) {
       child.loginTip.on = true;
       setTimeout(() => {
@@ -27,9 +27,9 @@ const login = function (name, password) {
   };
   ajax('ajaxUser', 'post', {
     data: user,
-    callback: (result) => {
-      if (result.password) {
-        loginSuccess(result);
+    callback: (data) => {
+      if (data.password) {
+        loginSuccess(data, name);
       }
     },
   });

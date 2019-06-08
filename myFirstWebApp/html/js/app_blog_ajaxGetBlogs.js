@@ -10,6 +10,10 @@ const ajaxGetBlogs = (data) => {
     },
     callback: (result) => {
       data.blogs = result;
+      data.blogs.forEach((blog) => {
+        const patt1 = /<[^>]+>/g;
+        blog.content = blog.content.replace(patt1, "");
+      });
     }
   })
 };

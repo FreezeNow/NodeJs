@@ -53,6 +53,19 @@
       </ul>
     </div>
   </div>
+  <div id="vChatroom">
+    <div id="CR-showChatMsg" v-for="chatMsg of chatMsgList">
+      <p>
+        <span v-html="chatMsg.name"></span>
+        <span v-html="chatMsg.content"></span>
+      </p>
+    </div>
+    <div id="CR-inputAndSend">
+      <input type="text" id="CR-inputChatMsg" v-model="inputChatMsg"/>
+      <input type="button" id="CR-sendChatMsg" @click="sendChatMsgClick" value="发送">
+    </div>
+    
+  </div>
 
   <script type="module" src="js/app_friendsAndChat.js"></script>
 </body>

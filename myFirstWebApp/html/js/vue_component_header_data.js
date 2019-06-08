@@ -18,6 +18,7 @@ const userData = () => {
     user:`
       <a href="login.html">登录</a>
       <a href="register.html">注册</a>`,
+    name: '',
   };
 };
 

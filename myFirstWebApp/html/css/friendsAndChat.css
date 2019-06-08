@@ -49,6 +49,7 @@
 }
 p.signature{
   font-size: 14px;
+  line-height: 1.5em;
   color: #666;
 }
 
@@ -106,4 +107,19 @@ p.signature{
   min-width: 3em;
   width: 10%;
   height: 100%;
+}
+
+#vChatroom{
+  width: 200px;
+  height: 700px;
+  position: absolute;
+  right: 50px;
+  top: 100px;
+  border: 1px #ccc solid;
+  background-color: #fff;
+}
+#CR-inputAndSend{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

@@ -196,12 +196,19 @@ const ajaxSearchUser = function (response, post) {
   mysqlFn('users', sql, {
     callback(result) {
       console.log(`找到${result.length}个用户`);
-      result.forEach(searchResult => {
-        searchResultList.push({
-          id: searchResult.id,
-          name: searchResult.name,
+      if (result.length > 0) {
+        result.forEach(searchResult => {
+          searchResultList.push({
+            id: searchResult.id,
+            name: searchResult.name,
+          });
         });
-      });
+      } else {
+        searchResultList[0] = {
+          name: "未检索到该用户",
+        };
+      }
+      
       response.end(JSON.stringify(searchResultList));
     }
   })

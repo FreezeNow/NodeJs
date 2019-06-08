@@ -51,6 +51,20 @@ const vFriendsData = {
         },
       ],
       friendsStyle: '',
+    },
+    {
+      listName: '聊天测试',
+      friends: [
+        {
+          name: 'root',
+          signature: ' ',
+        },
+        {
+          name: 'a',
+          signature: ' ',
+        }
+      ],
+      friendsStyle: '',
     }
   ],
 };
@@ -59,18 +73,18 @@ const vAddFriendWindowData = {
   afwClass: {
     off: true,
   },
-  searchBarMsg: "",
-  searchResultList: [
-    {
-      name: "a",
-    },
-    {
-      name: "c",
-    }
-  ],
+  searchBarMsg: '',
+  searchResultList: [],
 };
+
+const vChatroomData = {
+  inputChatMsg: '',
+  chatMsgList: [],
+  socket: null,
+}
 
 export default {
   vFriendsData,
   vAddFriendWindowData,
+  vChatroomData,
 };

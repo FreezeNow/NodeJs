@@ -1,6 +1,7 @@
 import http from 'http';
 import url from 'url';
 import path from 'path';
+import WebSocket from 'ws';
 import mysql from './mysql';
 import ajax from './ajax';
 import verify from './verify';
@@ -113,9 +114,60 @@ const start = function (file) {
     //   file.isFile(file, pathname, request, response);
     // }
   }
+  const server = http.createServer(onRequest);
+  const wss = new WebSocket.Server({
+    server,
+    host: 'localhost',
+    port: 3000,
+  });
+  let sockets = {};
+  wss.broadcast = function broadcast(data) {
+    wss.clients.forEach(function each(client) {
+      client.send(data)
+    });
+  };
+  wss.notice = function notice(id, data, ws) {
+    // 向指定id发送
+    try {
+      console.log(`正在向${id}发送...`)
+      let target = sockets[id]
+      if (target) {
+        // target.send('收到一条新消息')
+        target.send(data)
+      } else {
+        ws.send(JSON.stringify({content: '目标信道已关闭'}));
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  wss.on('connection', (ws, request) => {
+    const url = request.url;
+    const from = url.slice(url.indexOf('from') + 'from'.length + 1, url.indexOf('&'));
+    const to = url.slice(url.indexOf('to') + 'to'.length + 1);
+    sockets[from] = ws;
+    console.log(`链接成功: ${from}`);
 
-  http.createServer(onRequest).listen(8080);
-  console.log('服务器启动,端口为8080');
+
+    ws.on('message', (data) => {
+      // console.log(data);
+      // wss.clients.forEach((client) => {
+      //   // client.
+      //   client.send(data);
+      // });
+      wss.notice(to, data, ws)
+      // wss.clients.send(data);
+    });
+    ws.on('close', () => {
+      ws.close();
+      console.log('关闭成功');
+
+    })
+  });
+
+
+  server.listen(8000);
+  console.log('服务器启动,端口为8000');
 }
 
 export default {
